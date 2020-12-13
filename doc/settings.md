@@ -11,6 +11,10 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+#### Security/Безопасность
+
+`git config --global credential.helper cache` - задание кеша паролей для удаленный веток
+
 #### Выбор редактора для коммита
 
 ```sh
