@@ -9,10 +9,12 @@ Vagrant.configure("2") do |config|
 			vb.customize ["modifyvm", :id, "--memory", "256"]
 		end
 		os.vm.provision "shell", inline: <<SHELL
+		sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+		sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
+		systemctl restart sshd
 SHELL
 	end
 ## Устанавливаем связь между каталогом "./src" хост-системы
 ## и каталогом "/home/vagrant" гостевой системы.
 #		config.vm.synced_folder "./src", "/home/vagrant"
 end
-
