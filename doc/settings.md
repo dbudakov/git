@@ -43,4 +43,8 @@ git config user.name
 git config --global core.excludesfile ~/.gitignore_global # задание файла gitignore
 ```
 
+#### Слияния
+
+`git config --global rerere.enabled true` - _reuse recorded resolution_(повторное использование записанного решения). Влияет на слияние, Кеширует разрешенные конфликты, и воспроизводит разрешения на следующие слияния. Воспользоваться кешем: `git rerere`
+
 Дополнительно: [github](https://github.com/github/gitignore)

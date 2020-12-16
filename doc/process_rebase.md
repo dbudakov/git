@@ -8,7 +8,7 @@ _Две точки зрения на слияние и перемещение д
 
 ```sh
 git checkout '<second_branch>' # переходим в ветку в которую будет выполнять перемещение master ветки
-git rebase master # перемещаем, будет создан коммит в той же ветки что и master, но следующий за ним
+git rebase master # перемещаем, добавляем исправления мастера в текущую ветку, будет создан коммит в той же ветки что и master, но следующий за ним
 git checkout master # переходим в master
 git merge '<second_branch>' # выполняем перемотку
 ```
@@ -26,4 +26,8 @@ git pull --rebase
 git fetch && git rebase temone/master
 ```
 
-`git config --global pull.rebase true` - для задания `git pull --rebase` на постоянной основе
+Для задания `git pull --rebase` на постоянной основе
+`git config --global pull.rebase true`
+
+Объедените или реорганизуйте все наработки в один коммит:
+`git rebase -i`
