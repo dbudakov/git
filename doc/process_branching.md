@@ -47,3 +47,26 @@ _Fast-forward_ - перемотка при слиянии
 remote branch - представляют собой ссылки на состояния веток в удаленных репозиториях
 
 `git fetch <remote_repo>` - синхронизация с удаленным репозиториемма
+
+#### filter-branch
+
+Удалить файл _password.txt_ из всех коммитов, добавленый по ошибке:
+`git filter-branch --tree-filter 'rm -f passwords.txt' HEAD` - перемещает _HEAD_ к каждой ветке и удаляет файл
+`git filter-branch --tree-filter --all 'rm -f passwords.txt' HEAD` - работа со всеми ветками
+
+Переназначить корневую ветку на ветку с именем _trunk_:
+`git filter-branch --subdirectory-filter trunk HEAD`
+
+Изменить электронную почту автора во всей истории, где она фигурирует:
+
+```sh
+git filter-branch --commit-filter '
+  if [ "$GIT_AUTHOR_EMAIL" = "shacon@localhost" ];
+  then
+        GIT_AUTHOR_NAME="Scott Chacon";
+        GIT_AUTHOR_EMAIL="schacon@example.com";
+        git commit-tree "$@";
+  else
+        git commit-tree "$@";
+  fi' HEAD
+```
