@@ -18,6 +18,8 @@
 `git checkout -b <branch_name>` - создать ветку и сразу перейти в нее
 `git checkout -b <branch_name> <remote_branch>` - создание ветки с указателем на удаленную
 
+`git branch -m <new_name>` - переименовать ветку  
+
 `git log --oneline --decorate` - показывает действующую ветку(параметр "HEADgit")
 `git log --oneline --decorate --graph -all` - показать разветвления всего репозитория в _graph_
 

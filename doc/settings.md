@@ -72,3 +72,8 @@ git config --global core.excludesfile ~/.gitignore_global # задание фа�
 `git config --global rerere.ebabled true`
 _or_
 `touch .git/rr-cache`
+
+### push
+
+`git config --global push.default current` - при выполнении _git push_, будет отправлять изменения в одноименные ветки, доступны опции: _nothing_, _current_, _upstream_, _tracking_, _simple_, _matching_
+`git config --global push.default upstream` - отправляет изменения в upstream
